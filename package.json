@@ -1,0 +1,29 @@
+{
+   "name": "template-engine",
+   "version": "1.0.0",
+   "description": "A template engine for dynamic templates",
+   "main": "index.js",
+   "module": "main.js",
+   "scripts": {
+      "dev": "nodemon -r esm index.js",
+      "prod": "node src/index.js"
+   },
+   "author": "",
+   "license": "ISC",
+   "dependencies": {
+      "cors": "^2.8.5",
+      "esm": "^3.2.25",
+      "express": "^4.17.1",
+      "fs": "0.0.1-security",
+      "handlebars": "^4.7.6",
+      "html-pdf": "^2.2.0",
+      "morgan": "^1.10.0",
+      "path": "^0.12.7",
+      "dotenv": "^8.2.0",
+      "graphql-request": "^1.8.2",
+      "rrule": "^2.6.4"
+   },
+   "devDependencies": {
+      "nodemon": "^2.0.3"
+   }
+}
