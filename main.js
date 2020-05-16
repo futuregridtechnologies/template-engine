@@ -3,7 +3,7 @@ import express from 'express'
 import cors from 'cors'
 const morgan = require('morgan')
 
-import { RecipeCardRouter } from './templates'
+import { TemplateHandler } from './controllers'
 
 const app = express()
 
@@ -16,7 +16,7 @@ app.use(morgan('dev'))
 const PORT = process.env.PORT || 4000
 
 // Routes
-app.use('/templates', RecipeCardRouter)
+app.use('/templates/', TemplateHandler)
 
 app.listen(PORT, () => {
    console.log(`Server started on ${PORT}`)
