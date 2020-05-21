@@ -25,9 +25,7 @@
       }
 
       .item1 {
-         font-size: 8px;
          width: 154px;
-         text-align: center;
          padding-left: 6px;
       }
 
@@ -37,7 +35,7 @@
       }
 
       .item3 {
-         width: 112px;
+         width: 114px;
       }
 
       .line {
@@ -50,7 +48,7 @@
       }
 
       .content {
-         padding-left: 6px;
+         padding-left: 4px;
       }
 
       .item6 {
@@ -58,10 +56,6 @@
          height: 67px;
          width: 71px;
          border: 1px solid #111111;
-      }
-
-      .left {
-         margin-top: -8px;
       }
 
       .field {
@@ -79,7 +73,7 @@
       }
 
       .item5 {
-         width: 58px;
+         width: 62px;
       }
 
       label,
@@ -107,6 +101,7 @@
 
       label {
          letter-spacing: 0.01em;
+         font-size: 12px;
       }
 
       input:placeholder-shown+label {
@@ -130,7 +125,8 @@
 
       input:not(:placeholder-shown)+label,
       input:focus+label {
-         transform: translate(0, 0) scale(0.6);
+         text-overflow: ellipsis;
+         transform: translate(0, 0) scale(0.9);
          cursor: pointer;
       }
    </style>
@@ -140,7 +136,7 @@
    <div class="container">
       <div class="header">
          <div class="item1">
-            <h2>{{name}}</h2>
+            <div>{{name}}</div>
          </div>
          <div class="item2">
             <div class="colored">
@@ -153,7 +149,7 @@
             <div class="left">
                <div class="item3">
                   <span class='field'>
-                     <input type="text" id="recipe" name="recipe" placeholder="recipe" required />
+                     <input type="text" id="recipe" name="recipe" placeholder="recipe" required value="{{name}}" />
                      <label for="recipe">Recipe</label>
                   </span>
                </div>
@@ -161,13 +157,13 @@
                <div class="wrap">
                   <div class="item4">
                      <span class='field'>
-                        <input type="text" id="order" name="order" placeholder="order no" required />
+                        <input type="text" id="order" name="order" placeholder="order no" required value="{{order}}" />
                         <label for="order">Ord no.</label>
                      </span>
                   </div>
                   <div class="item5">
                      <span class='field'>
-                        <input type="text" id="best" name="best" placeholder="best by" required />
+                        <input type="text" id="best" name="best" placeholder="best by" required value="{{best}}" />
                         <label for="best">Best by</label>
                      </span>
                   </div>

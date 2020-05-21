@@ -59,9 +59,6 @@
          border: 1px solid #111111;
       }
 
-      .left {
-         margin-top: -3px;
-      }
 
       .field {
          display: flex;
@@ -130,7 +127,7 @@
 
       input:not(:placeholder-shown)+label,
       input:focus+label {
-         transform: translate(0, 0) scale(0.6);
+         transform: translate(0, 0) scale(1);
          cursor: pointer;
       }
    </style>
@@ -153,7 +150,7 @@
             <div class="left">
                <div class="item3">
                   <span class='field'>
-                     <input type="text" id="recipe" name="recipe" placeholder="recipe" required />
+                     <input type="text" id="recipe" name="recipe" placeholder="recipe" required value="{{name}}" />
                      <label for="recipe">Recipe</label>
                   </span>
                </div>
@@ -161,13 +158,13 @@
                <div class="wrap">
                   <div class="item4">
                      <span class='field'>
-                        <input type="text" id="order" name="order" placeholder="order no" required />
+                        <input type="text" id="order" name="order" placeholder="order no" required value="{{order}}" />
                         <label for="order">Ord no.</label>
                      </span>
                   </div>
                   <div class="item5">
                      <span class='field'>
-                        <input type="text" id="best" name="best" placeholder="best by" required />
+                        <input type="text" id="best" name="best" placeholder="best by" required value="{{best}}" />
                         <label for="best">Best by</label>
                      </span>
                   </div>

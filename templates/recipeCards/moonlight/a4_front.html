@@ -1,0 +1,168 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <title>{{ name }}</title>
+   <style>
+      body {
+         width: 595px;
+         height: 842px;
+         border: 1px solid #111111;
+         margin: 10px 10px 10px 10px;
+         background: #FFFFFF;
+         font-family: Arial;
+         font-style: normal;
+      }
+
+      .container {
+         margin-left: 28px;
+         margin-right: 28px;
+      }
+
+      .nav {
+         padding-top: 40px;
+         padding-bottom: 20px;
+      }
+
+      .title {
+         float: left;
+         font-weight: bold;
+         font-size: 12px;
+      }
+
+      .social {
+         float: right;
+         font-size: 10px;
+         width: fit-content;
+      }
+
+      .header {
+         font-weight: bold;
+         text-align: justify;
+         font-size: 32px;
+      }
+
+      .author {
+         padding: 30px;
+         text-align: center;
+         font-size: 14px;
+      }
+
+      .menu {
+         padding: 20px;
+         text-align: center;
+         font-family: Pacifico;
+         font-style: normal;
+         font-weight: normal;
+         font-size: 14px;
+      }
+
+      .design {
+         margin-left: auto;
+         margin-right: auto;
+         width: 170px;
+         display: block;
+         padding: 30px 0px 30px 0px;
+      }
+
+      .content {
+         padding: 50px 0px;
+         font-style: normal;
+         font-weight: bold;
+         font-size: 12px;
+         text-align: justify;
+      }
+
+      .disc {
+         height: 8px;
+         width: 8px;
+         background-color: #111111;
+         border-radius: 50%;
+         display: inline-block;
+      }
+
+      .quantity {
+         font-size: 20px;
+         padding: 18px 0px;
+         text-align: center;
+      }
+
+      .left,
+      .right,
+      .mid {
+         width: 25%;
+         text-align: center;
+      }
+
+      .list {
+         padding: 40px 0px;
+         font-size: 12px;
+         display: flex;
+      }
+
+      .disc-span {
+         padding: 20px;
+      }
+   </style>
+</head>
+
+<body>
+   <div class="container">
+      <div class="nav">
+         <div class="title">{{Restaurant name}}</div>
+         <div class="social">
+            <a href="www.restaurantonlinestore.com">www.restaurantonlinestore.com</a>
+            <div>+1 658 3467348343</div>
+         </div>
+      </div>
+      <div style="display: flex; padding-top: 100px; width: 100%;">
+         <div style="margin-right: 2em; width: 60%;">
+            <img src="../../../assets/images/Rectangle 1.jpg" alt="" width="200px">
+         </div>
+         <div>
+            <div class="header">
+               Hamburger Steak with Onions and Gravy
+            </div>
+            <div class="author">
+               By: Gordan Ramsay
+            </div>
+            <div class="menu">
+               Non-vegeterian
+               <span class="disc-span">
+                  <span class="disc"></span>
+               </span>
+               Mexican
+            </div>
+         </div>
+      </div>
+      <img class="design" src="../../../assets/images/8iGbRLX5T 1.png" alt="design">
+      <div class="content">
+         An easy-to-make classic featuring tasty hamburger 'steaks' smothered in gravy and onions. Traditionally served
+         with hot white rice or potatoes, it's a great way to dress up a pound of ground beef and you probably have all
+         the ingredients on hand!
+      </div>
+      <div class="list">
+         <div class="left">
+            Servings
+            <div class="quantity">4</div>
+         </div>
+         <div class="disc-span">
+            <span class="disc"></span>
+         </div>
+         <div class="mid">
+            Cooking Time
+            <div class="quantity">1hr 15m</div>
+         </div>
+         <div class="disc-span">
+            <span class="disc"></span>
+         </div>
+         <div class="right">
+            Utensils required
+            <div class="quantity">Pan, Spatula</div>
+         </div>
+      </div>
+   </div>
+</body>
+
+</html>
