@@ -18,10 +18,10 @@
       "fs": "0.0.1-security",
       "graphql-request": "^1.8.2",
       "handlebars": "^4.7.6",
-      "html-pdf": "^2.2.0",
       "morgan": "^1.10.0",
       "node-html-to-image": "^2.1.0",
       "path": "^0.12.7",
+      "puppeteer": "^2.0.0",
       "rrule": "^2.6.4"
    },
    "devDependencies": {

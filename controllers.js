@@ -4,7 +4,6 @@ export const TemplateHandler = async (req, res) => {
    const data = req.query;
    const outputType = data.outputType;
    const outputFolder = data.template;
-   console.log(data);
 
    var methods = require('./templates/' + outputFolder + '/index');
    if (outputType === 'html') {
