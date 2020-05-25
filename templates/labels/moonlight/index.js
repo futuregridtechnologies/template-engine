@@ -6,10 +6,8 @@ const nodeHtmlToImage = require('node-html-to-image')
 const utils = require('util')
 const puppeteer = require('puppeteer')
 const readFile = utils.promisify(fs.readFile)
-//file path
 
-
-const createMoonlightHTML = async function (request) {
+export const createMoonlightHTML = async function (request) {
    const width = request.width;
    const height = request.height;
    const filepath = path.join(__dirname, '/index' + width + 'x' + height + '.html');
@@ -32,7 +30,7 @@ async function getTemplateHtml(filepath) {
    }
 }
 
-const createMoonlightPDF = async function (request) {
+export const createMoonlightPDF = async function (request) {
    const width = request.width;
    const height = request.height;
    const filepath = path.join(__dirname, '/index' + width + 'x' + height + '.html');
@@ -60,7 +58,7 @@ const createMoonlightPDF = async function (request) {
       });
 }
 
-const createMoonlightImage = async function (request) {
+export const createMoonlightImage = async function (request) {
    const width = request.width;
    const height = request.height;
    const filepath = path.join(__dirname, '/index' + width + 'x' + height + '.html');
@@ -75,5 +73,3 @@ const createMoonlightImage = async function (request) {
       .then(() => console.log('The image was created successfully!'))
 
 }
-
-module.exports = { createMoonlightHTML, createMoonlightPDF, createMoonlightImage }

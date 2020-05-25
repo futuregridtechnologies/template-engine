@@ -1,15 +1,22 @@
 export const GET_RECIPE = `
    query simpleRecipe($id: Int!) {
       simpleRecipe(id: $id) {
-      cuisine
-      cookingTime
-      author
-      assets
-      description
-      image
-      ingredients
-      name
-      procedures
+         assets
+         cuisine
+         procedures
+         ingredients
+         simpleRecipeYields {
+           ingredientSachets {
+             ingredientSachet {
+               ingredient {
+                 image
+               }
+             }
+             slipName
+             isVisible
+           }
+         }
+       }  
    }
-   }
+   
 `

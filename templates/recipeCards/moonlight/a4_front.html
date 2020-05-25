@@ -4,163 +4,67 @@
 <head>
    <meta charset="UTF-8">
    <title>{{ name }}</title>
-   <style>
-      body {
-         width: 595px;
-         height: 842px;
-         border: 1px solid #111111;
-         margin: auto;
-         margin-bottom: auto;
-         background: #FFFFFF;
-         font-family: Arial;
-         font-style: normal;
-      }
-
-      .container {
-         margin-left: 28px;
-         margin-right: 28px;
-      }
-
-      .nav {
-         padding-top: 40px;
-         padding-bottom: 20px;
-      }
-
-      .title {
-         float: left;
-         font-weight: bold;
-         font-size: 12px;
-      }
-
-      .social {
-         float: right;
-         font-size: 10px;
-         width: fit-content;
-      }
-
-      .header {
-         font-weight: bold;
-         text-align: justify;
-         font-size: 32px;
-      }
-
-      .author {
-         padding: 30px;
-         text-align: center;
-         font-size: 14px;
-      }
-
-      .menu {
-         padding: 20px;
-         text-align: center;
-         font-family: Pacifico;
-         font-style: normal;
-         font-weight: normal;
-         font-size: 14px;
-      }
-
-      .design {
-         margin-left: auto;
-         margin-right: auto;
-         width: 170px;
-         display: block;
-         padding: 30px 0px 30px 0px;
-      }
-
-      .content {
-         padding: 50px 0px;
-         font-style: normal;
-         font-weight: bold;
-         font-size: 12px;
-         text-align: justify;
-      }
-
-      .disc {
-         height: 8px;
-         width: 8px;
-         background-color: #111111;
-         border-radius: 50%;
-         display: inline-block;
-      }
-
-      .quantity {
-         font-size: 20px;
-         padding: 18px 0px;
-         text-align: center;
-      }
-
-      .left,
-      .right,
-      .mid {
-         width: 25%;
-         text-align: center;
-      }
-
-      .list {
-         padding: 40px 0px;
-         font-size: 12px;
-         display: flex;
-      }
-
-      .disc-span {
-         padding: 20px;
-      }
-   </style>
 </head>
 
-<body>
-   <div class="container">
-      <div class="nav">
-         <div class="title">{{name}}</div>
-         <div class="social">
+<body style="margin-top: auto;margin-bottom: auto;background: #FFFFFF;font-family: Arial;font-style: normal;">
+   <div style="margin-top:6%;margin-left: auto;margin-right: auto;width: 842px;height: 595px;">
+      <div class="nav" style="padding-top: 10px;padding-bottom: 20px;">
+         <div class="title" style="float: left;font-weight: bold;font-size: 12px;">{{name}}</div>
+         <div class="social" style="float: right;font-size: 10px;width: fit-content;">
             <a href="www.restaurantonlinestore.com">www.restaurantonlinestore.com</a>
             <div>+1 658 3467348343</div>
          </div>
       </div>
-      <div style="display: flex; padding-top: 100px; width: 100%;">
-         <div style="margin-right: 2em; width: 60%;">
-            <img src="http://localhost:4000/images/Rectangle 1.jpg" alt="" width="200px">
+      <div style="display: flex; padding-top: 40px; width: 100%;">
+         <div style="margin-right: 2em;">
+            <img src="http://localhost:4000/images/Rectangle 1.jpg" alt="" width="400px">
          </div>
-         <div>
-            <div class="header">
+         <div style="margin: auto;">
+            <div class="header" style="font-weight: bold;text-align: justify;font-size: 32px;">
                Hamburger Steak with Onions and Gravy
             </div>
-            <div class="author">
+            <div class="author" style="padding: 30px;text-align: center;font-size: 14px;">
                By: Gordan Ramsay
             </div>
-            <div class="menu">
+            <div class="menu"
+               style="padding: 20px;text-align: center;font-family: Pacifico;font-style: normal;font-weight: normal;font-size: 14px;">
                Non-vegeterian
-               <span class="disc-span">
-                  <span class="disc"></span>
+               <span class="disc-span" style="padding: 20px;">
+                  <span class="disc"
+                     style="height: 8px;width: 8px;background-color: #111111;border-radius: 50%;display: inline-block;"></span>
                </span>
                Mexican
             </div>
          </div>
       </div>
-      <img class="design" src="http://localhost:4000/images/8iGbRLX5T 1.png" alt="design">
-      <div class="content">
+      <img class="design" src="http://localhost:4000/images/8iGbRLX5T 1.png" alt="design"
+         style="margin-left: auto;margin-right: auto;width: 170px;display: block;padding: 30px 0px 30px 0px;">
+      <div class="content"
+         style="padding: 0px 0px;font-style: normal;font-weight: bold;font-size: 12px;text-align: justify;">
          An easy-to-make classic featuring tasty hamburger 'steaks' smothered in gravy and onions. Traditionally served
          with hot white rice or potatoes, it's a great way to dress up a pound of ground beef and you probably have all
          the ingredients on hand!
       </div>
-      <div class="list">
-         <div class="left">
+      <div class="list" style="padding: 30px 0px;font-size: 12px;display: flex;">
+         <div class="left" style="width: 25%;text-align: center;">
             Servings
-            <div class="quantity">4</div>
+            <div class="quantity" style="font-size: 20px;padding: 18px 0px;text-align: center;">4</div>
          </div>
-         <div class="disc-span">
-            <span class="disc"></span>
+         <div class="disc-span" style="padding: 20px;">
+            <span class="disc"
+               style="height: 8px;width: 8px;background-color: #111111;border-radius: 50%;display: inline-block;"></span>
          </div>
-         <div class="mid">
+         <div class="mid" style="width: 25%;text-align: center;">
             Cooking Time
-            <div class="quantity">1hr 15m</div>
+            <div class="quantity" style="font-size: 20px;padding: 18px 0px;text-align: center;">1hr 15m</div>
          </div>
-         <div class="disc-span">
-            <span class="disc"></span>
+         <div class="disc-span" style="padding: 20px;">
+            <span class="disc"
+               style="height: 8px;width: 8px;background-color: #111111;border-radius: 50%;display: inline-block;"></span>
          </div>
-         <div class="right">
+         <div class="right" style="width: 25%;text-align: center;">
             Utensils required
-            <div class="quantity">Pan, Spatula</div>
+            <div class="quantity" style="font-size: 20px;padding: 18px 0px;text-align: center;">Pan, Spatula</div>
          </div>
       </div>
    </div>

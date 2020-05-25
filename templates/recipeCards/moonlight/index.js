@@ -1,9 +1,12 @@
+import { client } from '../../../lib/graphql'
+import { GET_RECIPE } from '../../../graphql/recipe'
+
 const fs = require("fs");
 const path = require("path");
 const handlebars = require("handlebars");
 const nodeHtmlToImage = require('node-html-to-image')
 const merge = require('easy-pdf-merge');
-
+const cheerio = require('cheerio');
 
 const utils = require('util')
 const puppeteer = require('puppeteer')
@@ -12,12 +15,23 @@ const readFile = utils.promisify(fs.readFile)
 const filepath = path.join(__dirname, '/a4_front.html');
 const filepath2 = path.join(__dirname, '/a4_back.html');
 
-const createMoonlightHTML = async function (request) {
-   const htmlInput = request;
+export const createMoonlightHTML = async function (request) {
+   const htmlInput = await client.request(GET_RECIPE, { id: request.id })
+   console.log(htmlInput)
+
+   var outputHTML = '<html><head><style type = "text/css"><!--@page rotated { size : landscape }--></style></head><body style="border: 1px solid #111111;margin: auto;margin-bottom: auto;background: #FFFFFF;font-family: Arial;font-style: normal;">';
    let templateHtml = fs.readFileSync(filepath, 'utf8');
    let template = handlebars.compile(templateHtml);
    let html = template(htmlInput);
-   return html;
+   templateHtml = fs.readFileSync(filepath2, 'utf8');
+   template = handlebars.compile(templateHtml);
+   let html2 = template(htmlInput);
+   var $front = cheerio.load(html);
+   var $back = cheerio.load(html2);
+   outputHTML += $front('body').html()
+   outputHTML += $back('body').html()
+   outputHTML += '</body></html>';
+   return outputHTML;
 }
 
 
@@ -31,7 +45,7 @@ async function getTemplateHtml(filepath) {
    }
 }
 
-const createMoonlightPDF = async function (request) {
+export const createMoonlightPDF = async function (request) {
    const data = request;
    await getTemplateHtml(filepath)
       .then(async (res) => {
@@ -45,7 +59,7 @@ const createMoonlightPDF = async function (request) {
 
          await page.setContent(html)
 
-         await page.pdf({ path: 'Page1.pdf', format: 'A4' })
+         await page.pdf({ path: 'Page1.pdf', format: 'A4', landscape: true })
          await browser.close();
          console.log("PDF Generated")
 
@@ -65,7 +79,7 @@ const createMoonlightPDF = async function (request) {
 
          await page.setContent(html)
 
-         await page.pdf({ path: 'Page2.pdf', format: 'A4' })
+         await page.pdf({ path: 'Page2.pdf', format: 'A4', landscape: true })
 
          await browser.close();
          console.log("PDF Generated")
@@ -75,7 +89,7 @@ const createMoonlightPDF = async function (request) {
          console.error(err)
       });
 
-   await merge(['Page1.pdf', 'Page2.pdf'], 'foo.pdf', function (err) {
+   merge(['Page1.pdf', 'Page2.pdf'], 'foo.pdf', function (err) {
       if (err) {
          return console.log(err)
       }
@@ -93,7 +107,7 @@ const createMoonlightPDF = async function (request) {
    // });
 }
 
-const createMoonlightImage = async function (request) {
+export const createMoonlightImage = async function (request) {
 
    const htmlInput = request;
    var templateHtml = fs.readFileSync(filepath, 'utf8');
@@ -106,5 +120,3 @@ const createMoonlightImage = async function (request) {
       .then(() => console.log('The image was created successfully!'))
 
 }
-
-module.exports = { createMoonlightHTML, createMoonlightPDF, createMoonlightImage }
