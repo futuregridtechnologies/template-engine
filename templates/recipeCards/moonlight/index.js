@@ -17,12 +17,11 @@ const filepath2 = path.join(__dirname, '/a4_back.html');
 
 export const createMoonlightHTML = async function (request) {
    const htmlInput = await client.request(GET_RECIPE, { id: request.id })
-   console.log(htmlInput)
-
+   console.log(htmlInput.simpleRecipe)
    var outputHTML = '<html><head><style type = "text/css"><!--@page rotated { size : landscape }--></style></head><body style="border: 1px solid #111111;margin: auto;margin-bottom: auto;background: #FFFFFF;font-family: Arial;font-style: normal;">';
    let templateHtml = fs.readFileSync(filepath, 'utf8');
    let template = handlebars.compile(templateHtml);
-   let html = template(htmlInput);
+   let html = template(htmlInput.simpleRecipe);
    templateHtml = fs.readFileSync(filepath2, 'utf8');
    template = handlebars.compile(templateHtml);
    let html2 = template(htmlInput);

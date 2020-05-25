@@ -1,10 +1,14 @@
 export const GET_RECIPE = `
    query simpleRecipe($id: Int!) {
       simpleRecipe(id: $id) {
-         assets
-         cuisine
+         name
+         utensils
          procedures
-         ingredients
+         image
+         description
+         cuisine
+         cookingTime
+         author
          simpleRecipeYields {
            ingredientSachets {
              ingredientSachet {

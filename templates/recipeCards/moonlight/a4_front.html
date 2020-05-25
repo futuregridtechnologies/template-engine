@@ -9,7 +9,7 @@
 <body style="margin-top: auto;margin-bottom: auto;background: #FFFFFF;font-family: Arial;font-style: normal;">
    <div style="margin-top:6%;margin-left: auto;margin-right: auto;width: 842px;height: 595px;">
       <div class="nav" style="padding-top: 10px;padding-bottom: 20px;">
-         <div class="title" style="float: left;font-weight: bold;font-size: 12px;">{{name}}</div>
+         <div class="title" style="float: left;font-weight: bold;font-size: 12px;">Restaurant Name</div>
          <div class="social" style="float: right;font-size: 10px;width: fit-content;">
             <a href="www.restaurantonlinestore.com">www.restaurantonlinestore.com</a>
             <div>+1 658 3467348343</div>
@@ -17,14 +17,19 @@
       </div>
       <div style="display: flex; padding-top: 40px; width: 100%;">
          <div style="margin-right: 2em;">
-            <img src="http://localhost:4000/images/Rectangle 1.jpg" alt="" width="400px">
+            {{# if image }}
+            <img src={{image}} alt="">
+            {{ else }}
+
+            {{/if}}
+
          </div>
          <div style="margin: auto;">
             <div class="header" style="font-weight: bold;text-align: justify;font-size: 32px;">
-               Hamburger Steak with Onions and Gravy
+               {{name}}
             </div>
             <div class="author" style="padding: 30px;text-align: center;font-size: 14px;">
-               By: Gordan Ramsay
+               By: {{author}}
             </div>
             <div class="menu"
                style="padding: 20px;text-align: center;font-family: Pacifico;font-style: normal;font-weight: normal;font-size: 14px;">
@@ -37,13 +42,11 @@
             </div>
          </div>
       </div>
-      <img class="design" src="http://localhost:4000/images/8iGbRLX5T 1.png" alt="design"
+      <img src="http://localhost:4000/images/8iGbRLX5T 1.png" alt="design"
          style="margin-left: auto;margin-right: auto;width: 170px;display: block;padding: 30px 0px 30px 0px;">
-      <div class="content"
-         style="padding: 0px 0px;font-style: normal;font-weight: bold;font-size: 12px;text-align: justify;">
-         An easy-to-make classic featuring tasty hamburger 'steaks' smothered in gravy and onions. Traditionally served
-         with hot white rice or potatoes, it's a great way to dress up a pound of ground beef and you probably have all
-         the ingredients on hand!
+      <div
+         style="padding: 0px 0px;font-style: normal;font-weight: bold;font-size: 12px;text-align: justify;text-align:center">
+         {{description}}
       </div>
       <div class="list" style="padding: 30px 0px;font-size: 12px;display: flex;">
          <div class="left" style="width: 25%;text-align: center;">
@@ -56,7 +59,7 @@
          </div>
          <div class="mid" style="width: 25%;text-align: center;">
             Cooking Time
-            <div class="quantity" style="font-size: 20px;padding: 18px 0px;text-align: center;">1hr 15m</div>
+            <div class="quantity" style="font-size: 20px;padding: 18px 0px;text-align: center;">{{cookingTime}}</div>
          </div>
          <div class="disc-span" style="padding: 20px;">
             <span class="disc"
@@ -64,7 +67,7 @@
          </div>
          <div class="right" style="width: 25%;text-align: center;">
             Utensils required
-            <div class="quantity" style="font-size: 20px;padding: 18px 0px;text-align: center;">Pan, Spatula</div>
+            <div class="quantity" style="font-size: 20px;padding: 18px 0px;text-align: center;">{{utensils}}</div>
          </div>
       </div>
    </div>
