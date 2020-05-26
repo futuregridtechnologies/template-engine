@@ -13,97 +13,20 @@
          <div style="display: flex;font-size: 10px;">
             <div class="left">
                <ol style="padding-left: 20px;">
+                  {{# if simpleRecipeYields}}
+                  {{# each simpleRecipeYields as |val|}}
+                  {{# each val.ingredientSachets as  |slip|}}
                   <li style="padding: 12px 12px 12px 0px;">
-                     <img src="http://localhost:4000/images/Rectangle 1.jpg"
-                        style="display: block;border-radius: 50%;width: 28px;height: 28px;">Ingredient
-                     slip
-                     name
+                     <img src={{slip.ingredientSachet.ingredient.image}}
+                        style="display: block;border-radius: 50%;width: 28px;height: 28px;">
+                     {{slip.slipName}}
                   </li>
-                  <li style="padding: 12px 12px 12px 0px;"><img src="http://localhost:4000/images/Rectangle 1.jpg"
-                        style="display: block;border-radius: 50%;width: 28px;height: 28px;">Ingredient
-                     slip
-                     name
-                  </li>
-                  <li style="padding: 12px 12px 12px 0px;"><img src="http://localhost:4000/images/Rectangle 1.jpg"
-                        style="display: block;border-radius: 50%;width: 28px;height: 28px;">Ingredient
-                     slip
-                     name
-                     long long
-                     name</li>
-                  <li style="padding: 12px 12px 12px 0px;"><img src="http://localhost:4000/images/Rectangle 1.jpg"
-                        style="display: block;border-radius: 50%;width: 28px;height: 28px;">Ingredient
-                     slip
-                     name
-                  </li>
-                  <li style="padding: 12px 12px 12px 0px;"><img src="http://localhost:4000/images/Rectangle 1.jpg"
-                        style="display: block;border-radius: 50%;width: 28px;height: 28px;">Ingredient
-                     slip
-                     name
-                     long long
-                     name</li>
-                  <li style="padding: 12px 12px 12px 0px;"><img src="http://localhost:4000/images/Rectangle 1.jpg"
-                        style="display: block;border-radius: 50%;width: 28px;height: 28px;">Ingredient
-                     slip
-                     name
-                  </li>
-                  <li style="padding: 12px 12px 12px 0px;"><img src="http://localhost:4000/images/Rectangle 1.jpg"
-                        style="display: block;border-radius: 50%;width: 28px;height: 28px;">Ingredient
-                     slip
-                     name
-                     long long
-                     name</li>
-                  <li style="padding: 12px 12px 12px 0px;"><img src="http://localhost:4000/images/Rectangle 1.jpg"
-                        style="display: block;border-radius: 50%;width: 28px;height: 28px;">Ingredient
-                     slip
-                     name
-                  </li>
-               </ol>
-            </div>
-            <div class="right">
-               <ol start="9" style="padding-left: 30px;">
-                  <li style="padding: 12px 12px 12px 0px;"><img src="http://localhost:4000/images/Rectangle 1.jpg"
-                        style="display: block;border-radius: 50%;width: 28px;height: 28px;">Ingredient
-                     slip
-                     name
-                  </li>
-                  <li style="padding: 12px 12px 12px 0px;"><img src="http://localhost:4000/images/Rectangle 1.jpg"
-                        style="display: block;border-radius: 50%;width: 28px;height: 28px;">Ingredient
-                     slip
-                     name
-                  </li>
-                  <li style="padding: 12px 12px 12px 0px;"><img src="http://localhost:4000/images/Rectangle 1.jpg"
-                        style="display: block;border-radius: 50%;width: 28px;height: 28px;">Ingredient
-                     slip
-                     name
-                     long long
-                     name</li>
-                  <li style="padding: 12px 12px 12px 0px;"><img src="http://localhost:4000/images/Rectangle 1.jpg"
-                        style="display: block;border-radius: 50%;width: 28px;height: 28px;">Ingredient
-                     slip
-                     name
-                  </li>
-                  <li style="padding: 12px 12px 12px 0px;"><img src="http://localhost:4000/images/Rectangle 1.jpg"
-                        style="display: block;border-radius: 50%;width: 28px;height: 28px;">Ingredient
-                     slip
-                     name
-                     long long
-                     name</li>
-                  <li style="padding: 12px 12px 12px 0px;"><img src="http://localhost:4000/images/Rectangle 1.jpg"
-                        style="display: block;border-radius: 50%;width: 28px;height: 28px;">Ingredient
-                     slip
-                     name
-                  </li>
-                  <li style="padding: 12px 12px 12px 0px;"><img src="http://localhost:4000/images/Rectangle 1.jpg"
-                        style="display: block;border-radius: 50%;width: 28px;height: 28px;">Ingredient
-                     slip
-                     name
-                     long long
-                     name</li>
-                  <li style="padding: 12px 12px 12px 0px;"><img src="http://localhost:4000/images/Rectangle 1.jpg"
-                        style="display: block;border-radius: 50%;width: 28px;height: 28px;">Ingredient
-                     slip
-                     name
-                  </li>
+                  {{/each}}
+                  {{/each}}
+                  {{else}}
+                  {{/if}}
+
+
                </ol>
             </div>
          </div>
