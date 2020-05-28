@@ -1,12 +1,21 @@
 import { client } from '../../../lib/graphql'
 import { GET_RECIPE } from '../../../graphql/recipe'
 
+const videoshow = require('videoshow')
 const fs = require("fs");
 const path = require("path");
 const handlebars = require("handlebars");
 const nodeHtmlToImage = require('node-html-to-image')
 const merge = require('easy-pdf-merge');
 const cheerio = require('cheerio');
+
+const ffmpegPath = require('@ffmpeg-installer/ffmpeg').path;
+const ffmpeg = require('fluent-ffmpeg');
+ffmpeg.setFfmpegPath(ffmpegPath);
+
+var ffprobe = require('ffprobe-static');
+ffmpeg.setFfprobePath(ffprobe.path);
+
 
 const utils = require('util')
 const puppeteer = require('puppeteer')
@@ -17,9 +26,6 @@ const filepath2 = path.join(__dirname, '/a4_back.html');
 
 export const createMoonlightHTML = async function (request) {
    const htmlInput = await client.request(GET_RECIPE, { id: request.id })
-   handlebars.registerHelper('json', function (context) {
-      return JSON.stringify(context);
-   });
    var outputHTML = '<html><head><style type = "text/css"><!--@page rotated { size : landscape }--></style></head><body style="border: 1px solid #111111;margin: auto;margin-bottom: auto;background: #FFFFFF;font-family: Arial;font-style: normal;">';
    let templateHtml = fs.readFileSync(filepath, 'utf8');
    let template = handlebars.compile(templateHtml);
@@ -120,4 +126,40 @@ export const createMoonlightImage = async function (request) {
    })
       .then(() => console.log('The image was created successfully!'))
 
+}
+
+export const createMoonlightVideo = async function (request) {
+   var images = [
+      './assets/images/step1.jpg',
+      './assets/images/step2.jpeg',
+      './assets/images/step3.png',
+   ]
+
+   var videoOptions = {
+      fps: 25,
+      loop: 5, // seconds
+      transition: true,
+      transitionDuration: 1, // seconds
+      videoBitrate: 1024,
+      videoCodec: 'libx264',
+      size: '640x?',
+      audioBitrate: '128k',
+      audioChannels: 2,
+      format: 'mp4',
+      pixelFormat: 'yuv420p'
+   }
+
+   console.log("here")
+   await videoshow(images)
+      .save('video.mp4')
+      .on('start', function () {
+         console.log("started")
+      })
+      .on('error', function (err, stdout, stderr) {
+         console.error('Error:', err)
+         console.error('ffmpeg stderr:', stderr)
+      })
+      .on('end', function (output) {
+         console.error('Video created in:', output)
+      })
 }

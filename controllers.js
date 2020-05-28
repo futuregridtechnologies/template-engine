@@ -22,8 +22,11 @@ export const TemplateHandler = async (req, res) => {
       //    if (err) throw err;
       //    console.log('File deleted!');
       // });
-   } else {
+   } else if (outputType === 'image') {
       const function_name = "create" + data.templateName + "Image";
+      res.send(await methods[function_name](data));
+   } else if (outputType === 'video') {
+      const function_name = "create" + data.templateName + "Video";
       res.send(await methods[function_name](data));
    }
 

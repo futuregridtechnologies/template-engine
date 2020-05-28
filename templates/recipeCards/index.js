@@ -1,3 +1,3 @@
-import { createMoonlightHTML, createMoonlightPDF, createMoonlightImage } from './moonlight/index';
+import { createMoonlightHTML, createMoonlightPDF, createMoonlightImage, createMoonlightVideo } from './moonlight/index';
 
-export { createMoonlightHTML, createMoonlightPDF, createMoonlightImage };
+export { createMoonlightHTML, createMoonlightPDF, createMoonlightImage, createMoonlightVideo };

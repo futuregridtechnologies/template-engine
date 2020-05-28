@@ -11,20 +11,25 @@
    "author": "",
    "license": "ISC",
    "dependencies": {
+      "@ffmpeg-installer/ffmpeg": "^1.0.20",
       "cheerio": "^1.0.0-rc.3",
       "cors": "^2.8.5",
       "dotenv": "^8.2.0",
       "easy-pdf-merge": "^0.2.2",
       "esm": "^3.2.25",
       "express": "^4.17.1",
+      "ffmpeg": "0.0.4",
+      "ffprobe-static": "^3.0.0",
+      "fluent-ffmpeg": "^2.1.2",
       "fs": "0.0.1-security",
       "graphql-request": "^1.8.2",
       "handlebars": "^4.7.6",
       "morgan": "^1.10.0",
-      "node-html-to-image": "^2.1.0",
+      "node-html-to-image": "^2.1.1",
       "path": "^0.12.7",
       "puppeteer": "^2.0.0",
-      "rrule": "^2.6.4"
+      "rrule": "^2.6.4",
+      "videoshow": "^0.1.12"
    },
    "devDependencies": {
       "nodemon": "^2.0.4"
