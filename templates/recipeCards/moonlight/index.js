@@ -26,7 +26,10 @@ const filepath2 = path.join(__dirname, '/a4_back.html');
 
 export const createMoonlightHTML = async function (request) {
    const htmlInput = await client.request(GET_RECIPE, { id: request.id })
-   var outputHTML = '<html><head><style type = "text/css"><!--@page rotated { size : landscape }--></style></head><body style="border: 1px solid #111111;margin: auto;margin-bottom: auto;background: #FFFFFF;font-family: Arial;font-style: normal;">';
+   handlebars.registerHelper('json', function (context) {
+      return JSON.stringify(context);
+   });
+   var outputHTML = '<html><head><link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet"><style type = "text/css"><!--@page rotated { size : landscape }--></style></head><body style="border: 1px solid #111111;margin: auto;margin-bottom: auto;background: #FFFFFF;width: 792px;">';
    let templateHtml = fs.readFileSync(filepath, 'utf8');
    let template = handlebars.compile(templateHtml);
    let html = template(htmlInput.simpleRecipe);
@@ -36,6 +39,7 @@ export const createMoonlightHTML = async function (request) {
    var $front = cheerio.load(html);
    var $back = cheerio.load(html2);
    outputHTML += $front('body').html()
+   outputHTML += '<div style="width:100%;height:0px; border-top:1px solid "></div>';
    outputHTML += $back('body').html()
    outputHTML += '</body></html>';
    return outputHTML;
@@ -53,18 +57,21 @@ async function getTemplateHtml(filepath) {
 }
 
 export const createMoonlightPDF = async function (request) {
-   const data = request;
+   const data = await client.request(GET_RECIPE, { id: request.id });
+   console.log(data.simpleRecipe)
+   handlebars.registerHelper('json', function (context) {
+      return JSON.stringify(context);
+   });
    await getTemplateHtml(filepath)
       .then(async (res) => {
-         console.log("Compiling the template with handlebars")
+         console.log("Compiling the template with handlebars  1")
          const template = handlebars.compile(res, { strict: true });
-         const result = template(data);
-         const html = result;
+         const result = template(data.simpleRecipe);
 
          const browser = await puppeteer.launch();
          const page = await browser.newPage()
 
-         await page.setContent(html)
+         await page.setContent(result)
 
          await page.pdf({ path: 'Page1.pdf', format: 'A4', landscape: true })
          await browser.close();
@@ -76,11 +83,11 @@ export const createMoonlightPDF = async function (request) {
       });
    await getTemplateHtml(filepath2)
       .then(async (res) => {
-         console.log("Compiling the template with handlebars")
+         console.log("Compiling the template with handlebars 2")
          const template = handlebars.compile(res, { strict: true });
-         const result = template(data);
+         const result = template(data.simpleRecipe);
          const html = result;
-
+         console.log(html);
          const browser = await puppeteer.launch();
          const page = await browser.newPage()
 
@@ -101,17 +108,18 @@ export const createMoonlightPDF = async function (request) {
          return console.log(err)
       }
       console.log('Successfully merged!')
+      fs.unlink('Page1.pdf', function (err) {
+         if (err) throw err;
+         // if no error, file has been deleted successfully
+         console.log('File deleted!');
+      });
+      fs.unlink('Page2.pdf', function (err) {
+         if (err) throw err;
+         // if no error, file has been deleted successfully
+         console.log('File deleted!');
+      });
    });
-   // fs.unlink('Page1.pdf', function (err) {
-   //    if (err) throw err;
-   //    // if no error, file has been deleted successfully
-   //    console.log('File deleted!');
-   // });
-   // fs.unlink('Page2.pdf', function (err) {
-   //    if (err) throw err;
-   //    // if no error, file has been deleted successfully
-   //    console.log('File deleted!');
-   // });
+
 }
 
 export const createMoonlightImage = async function (request) {
@@ -135,21 +143,6 @@ export const createMoonlightVideo = async function (request) {
       './assets/images/step3.png',
    ]
 
-   var videoOptions = {
-      fps: 25,
-      loop: 5, // seconds
-      transition: true,
-      transitionDuration: 1, // seconds
-      videoBitrate: 1024,
-      videoCodec: 'libx264',
-      size: '640x?',
-      audioBitrate: '128k',
-      audioChannels: 2,
-      format: 'mp4',
-      pixelFormat: 'yuv420p'
-   }
-
-   console.log("here")
    await videoshow(images)
       .save('video.mp4')
       .on('start', function () {
