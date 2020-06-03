@@ -29,7 +29,7 @@ export const createMoonlightHTML = async function (request) {
    handlebars.registerHelper('json', function (context) {
       return JSON.stringify(context);
    });
-   var outputHTML = '<html><head><link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet"><style type = "text/css"><!--@page rotated { size : landscape }--></style></head><body style="border: 1px solid #111111;margin: auto;margin-bottom: auto;background: #FFFFFF;width: 792px;">';
+   var outputHTML = '<html><head><link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet"><style type = "text/css"><!--@page rotated { size : landscape }--></style></head><body style="border: 1px solid #111111;margin: auto;margin-bottom: auto;background: #FFFFFF;width: 792px;font-family: Arial;">';
    let templateHtml = fs.readFileSync(filepath, 'utf8');
    let template = handlebars.compile(templateHtml);
    let html = template(htmlInput.simpleRecipe);
