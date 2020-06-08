@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+</head>
+
+<body>
+   <div style="position: relative;width: 336px;height: 136px;margin: 10px 10px 10px 10px;border: 2px solid #111111;">
+      <div class="container" style="display: block;">
+         <div class="header" style="display: flex;border-bottom: 1px solid #111111;height: 33px;">
+            <div class="item1" style="font-size: 10px;width: 300px;padding-left: 16px;">
+               <h2>{{name}}</h2>
+            </div>
+            <div class="item2" style="background-color: #111111;width: 36px;">
+               <div class="colored">
+               </div>
+            </div>
+         </div>
+         <div class="line" style="margin-top: 3px;border-top: 1px solid #111111;"></div>
+         <form class="content" action="" style="padding-left: 16px;">
+            <div class="wrapper" style="display: flex;">
+               <div class="left">
+                  <div class="item3" style="width: 204px;">
+                     <span class="field" style="display: flex;flex-flow: column-reverse;">
+                        <input type="text" id="recipe" name="recipe" placeholder="recipe" required value="{{name}}"
+                           style="transition: all 0.2s;touch-action: manipulation;border: 0;border-bottom: 1px solid #111111;border-left: 1px solid #111111;font-family: inherit;-webkit-appearance: none;border-radius: 0;padding: 0;cursor: text;">
+                        <label for="recipe"
+                           style="transition: all 0.2s;touch-action: manipulation;letter-spacing: 0.02em;">Recipe</label>
+                     </span>
+                  </div>
+
+                  <div class="wrap" style="padding-top: 12px;display: flex;">
+                     <div class="item4" style="width: 80px;margin-right: 36px;">
+                        <span class="field" style="display: flex;flex-flow: column-reverse;">
+                           <input type="text" id="order" name="order" placeholder="order no" required value="{{order}}"
+                              style="transition: all 0.2s;touch-action: manipulation;border: 0;border-bottom: 1px solid #111111;border-left: 1px solid #111111;font-family: inherit;-webkit-appearance: none;border-radius: 0;padding: 0;cursor: text;">
+                           <label for="order"
+                              style="transition: all 0.2s;touch-action: manipulation;letter-spacing: 0.02em;">Ord
+                              no.</label>
+                        </span>
+                     </div>
+                     <div class="item5" style="width: 88px;">
+                        <span class="field" style="display: flex;flex-flow: column-reverse;">
+                           <input type="text" id="best" name="best" placeholder="best by" required value="{{best}}"
+                              style="transition: all 0.2s;touch-action: manipulation;border: 0;border-bottom: 1px solid #111111;border-left: 1px solid #111111;font-family: inherit;-webkit-appearance: none;border-radius: 0;padding: 0;cursor: text;">
+                           <label for="best"
+                              style="transition: all 0.2s;touch-action: manipulation;letter-spacing: 0.02em;">Best
+                              by</label>
+                        </span>
+                     </div>
+                  </div>
+               </div>
+               <div class="item6" style="margin-left: 15px;height: 98px;width: 102px;border: 1px solid #111111;">qr
+               </div>
+            </div>
+         </form>
+      </div>
+   </div>
+</body>
+
+</html>
