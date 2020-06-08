@@ -18,10 +18,6 @@ export const TemplateHandler = async (req, res) => {
          res.contentType('application/pdf');
          res.send(info)
       });
-      // fs.unlink(file, function (err) {
-      //    if (err) throw err;
-      //    console.log('File deleted!');
-      // });
    } else if (outputType === 'image') {
       const function_name = "create" + data.templateName + "Image";
       res.send(await methods[function_name](data));

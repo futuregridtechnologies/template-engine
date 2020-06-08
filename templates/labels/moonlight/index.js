@@ -12,50 +12,19 @@ export const createMoonlightHTML = async function (request) {
    const height = request.height;
    const filepath = path.join(__dirname, '/index' + width + 'x' + height + '.html');
    const htmlInput = request;
-   console.log(htmlInput)
    const templateHtml = fs.readFileSync(filepath, 'utf8');
    const template = handlebars.compile(templateHtml);
    const html = template(htmlInput);
    return html;
 }
 
-
-async function getTemplateHtml(filepath) {
-   console.log("Loading template file in memory")
-   try {
-      const invoicePath = path.resolve(filepath);
-      return await readFile(invoicePath, 'utf8');
-   } catch (err) {
-      return Promise.reject("Could not load html template");
-   }
-}
-
 export const createMoonlightPDF = async function (request) {
-   const width = request.width;
-   const height = request.height;
-   const filepath = path.join(__dirname, '/index' + width + 'x' + height + '.html');
-   const data = request;
-   getTemplateHtml(filepath)
-      .then(async (res) => {
-         console.log("Compilng the template with handlebars")
-         const template = handlebars.compile(res, { strict: true });
-         const result = template(data);
-         const html = result;
-
-         const browser = await puppeteer.launch();
-         const page = await browser.newPage()
-
-         await page.setContent(html)
-
-         await page.pdf({ path: 'foo.pdf', format: 'A4' })
-
-         await browser.close();
-         console.log("PDF Generated")
-
-      })
-      .catch(err => {
-         console.error(err)
-      });
+   const browser = await puppeteer.launch();
+   const page = await browser.newPage();
+   const html = createMoonlightHTML(request)
+   await page.setContent(html, { waitUntil: 'networkidle0' })
+   await page.pdf({ path: 'foo.pdf', format: 'A4', landscape: true });
+   await browser.close();
 }
 
 export const createMoonlightImage = async function (request) {
