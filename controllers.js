@@ -107,21 +107,42 @@ const mergeMultiplePDF = (pdfFiles) => {
    });
 };
 
-const createImage = async function (html) {
+const createImage = async function (html, nameOfImage) {
+   nameOfImage = './output/' + nameOfImage + '.jpeg'
    await nodeHtmlToImage({
-      output: './image.jpeg',
+      output: nameOfImage,
       html: html,
       waitUntil: 'networkidle0'
    })
       .then(() => console.log('The image was created successfully!'))
+}
 
+const createVideo = async function (listOfFiles, htmlInput) {
+
+   for (var i = 0; i < listOfFiles.length; i++) {
+      var html = await createHTML(listOfFiles[i], htmlInput)
+      var nameOfImage = 'image' + (i + 1);
+      await createImage(html, nameOfImage)
+   }
+   const images = getFiles('./output');
+   await videoshow(images)
+      .save('video.mp4')
+      .on('start', function () {
+         console.log("started")
+      })
+      .on('error', function (err, stdout, stderr) {
+         console.error('Error:', err)
+         console.error('ffmpeg stderr:', stderr)
+      })
+      .on('end', function (output) {
+         console.error('Video created in:', output)
+      })
 }
 
 export const TemplateHandler = async (req, res) => {
    const data = req.query;
-   const outputType = data.outputType;
-   const template = data.template; // labels or recipecards
-   const outputFolder = data.outputFolder
+   const { outputType, template, outputFolder } = data;
+   console.log(outputType + " " + template + " " + outputFolder)
    const directoryPath = path.join(__dirname, '/templates/' + template + '/' + outputFolder);
    const listOfFiles = getFiles(directoryPath)
    let htmlInput;
@@ -135,15 +156,17 @@ export const TemplateHandler = async (req, res) => {
          break;
    }
    const html = createHTML(listOfFiles, htmlInput)
+   let nameOfImage;
    switch (outputType) {
       case 'pdf':
          createPDF(listOfFiles, htmlInput)
          break;
       case 'image':
-         createImage(html)
+         nameOfImage = 'image'
+         createImage(html, nameOfImage)
          break;
       case 'video':
-         //createVideo()
+         createVideo(listOfFiles, htmlInput);
          break;
    }
    res.send(html)
