@@ -12,10 +12,8 @@
    "license": "ISC",
    "dependencies": {
       "@ffmpeg-installer/ffmpeg": "^1.0.20",
-      "cheerio": "^1.0.0-rc.3",
       "cors": "^2.8.5",
       "dotenv": "^8.2.0",
-      "easy-pdf-merge": "^0.2.2",
       "esm": "^3.2.25",
       "express": "^4.17.1",
       "ffmpeg": "0.0.4",
