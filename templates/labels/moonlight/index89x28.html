@@ -7,27 +7,36 @@
    <style>
       body {
          position: relative;
-         width: 336px;
-         height: 136px;
+         background: lightgray;
          margin: auto;
-         border: 2px solid #111111;
-         margin: 10px 10px 10px 10px;
       }
 
       .container {
          display: block;
+         width: 336px;
+         height: 136px;
+         display: block;
+         margin: auto;
+         margin-top: 20px;
+         background: #ffffff;
       }
 
       .header {
          display: flex;
-         border-bottom: 1px solid #111111;
+         border-bottom: 1px solid rgba(0, 0, 0, 0.8);
          height: 33px;
       }
 
       .item1 {
+         width: 271px;
+         margin-left: 16px;
+         font-family: Roboto;
+         font-style: normal;
+         font-weight: bold;
          font-size: 10px;
-         width: 300px;
-         padding-left: 16px;
+         margin-right: 13px;
+         margin-top: 5px;
+         height: 24px;
       }
 
       .item2 {
@@ -37,10 +46,11 @@
 
       .item3 {
          width: 204px;
+         margin-bottom: 18px;
       }
 
       .line {
-         margin-top: 3px;
+         margin-top: 2px;
          border-top: 1px solid #111111;
       }
 
@@ -53,20 +63,21 @@
       }
 
       .item6 {
-         margin-left: 15px;
-         height: 98px;
+         margin-left: 14px;
+         height: 102px;
          width: 102px;
-         border: 1px solid #111111;
       }
 
 
       .field {
          display: flex;
          flex-flow: column-reverse;
+         height: 24px;
+         border-bottom: 1px solid #111111;
+         border-left: 1px solid #111111;
       }
 
       .wrap {
-         padding-top: 12px;
          display: flex;
       }
 
@@ -79,6 +90,10 @@
          width: 88px;
       }
 
+      .left {
+         margin-top: 19px;
+      }
+
       label,
       input {
          transition: all 0.2s;
@@ -87,13 +102,17 @@
 
       input {
          border: 0;
-         border-bottom: 1px solid #111111;
-         border-left: 1px solid #111111;
          font-family: inherit;
          -webkit-appearance: none;
          border-radius: 0;
          padding: 0;
          cursor: text;
+         margin-left: 4px;
+         font-family: Roboto;
+         font-style: normal;
+         font-weight: 500;
+         font-size: 10px;
+         margin-bottom: 1px;
       }
 
       input:focus {
@@ -127,7 +146,12 @@
 
       input:not(:placeholder-shown)+label,
       input:focus+label {
-         transform: translate(0, 0) scale(1);
+         font-family: Roboto;
+         font-style: normal;
+         font-weight: 500;
+         margin-left: 4px;
+         font-size: 6px;
+         transform: translate(0, -6px);
          cursor: pointer;
       }
    </style>
@@ -137,7 +161,7 @@
    <div class="container">
       <div class="header">
          <div class="item1">
-            <h2>{{name}}</h2>
+            {{name}}
          </div>
          <div class="item2">
             <div class="colored">
