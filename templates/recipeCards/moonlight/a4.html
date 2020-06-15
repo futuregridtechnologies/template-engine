@@ -67,9 +67,11 @@
                {{/if}}
                <div
                   style="padding-top: 0.847cm;font-family: Pacifico;font-style: normal;font-weight: normal;font-size: 20px;">
-                  Non-vegeterian
+                  {{#if type}}
+                  {{type}}
                   <span style="font-size: 32px; font-weight: lighter;font-family: Arial;padding:0px 20px ;">|</span>
-                  Mexican
+                  {{/if}}
+                  {{cuisine}}
                </div>
             </div>
             {{/if}}
@@ -132,503 +134,128 @@
       <div style=" padding-top: 0.564cm;
    margin-right: 0.987cm;height: 20.436cm;
    display: flex;color: #44496B;">
-         <div style="width: 8.04cm;">
+         <!-- 1.{{json simpleRecipeYields}}
+         <br /> -->
+         {{#if simpleRecipeYields}}
+         <!-- 2. {{json simpleRecipeYields}}
+         <br /> -->
+         {{#each simpleRecipeYields}}
+         <!-- 3. {{json ingredientSachets_aggregate}}
+         <br /> -->
+         {{#with ingredientSachets_aggregate}}
+         <!-- 4. {{json nodes}} -->
+         <div style="min-width: 8.04cm;">
             <div style=" font-size: 20px;
          font-family: Pacifico;
          text-align: center;
          width: 6.102cm;
          margin-left: 1.199cm;
          margin-bottom: 0.3529cm;">Ingredients</div>
+            {{#ifCond nodes.length '>' 9}}
             <div style="display: flex;
-         font-size: 8px;">
-               <div>
+         font-size: 10px;height: 100%;">
+               {{else}}
+               <div style="display: flex;
+            font-size: 10px;height: 100%; margin-left: 1.6cm;">
+                  {{/ifCond}}
                   <ul style=" margin: 0cm;
-               padding: 0cm;
-               padding-left: 0.9876cm;
-               list-style-type: none;">
-                     <li style=" width: 2.75cm;
-         text-align: center;
-         height: max-content;
-         margin-bottom: 0.5647cm;
-         font-family: Arial;
-         font-style: normal;
-         font-weight: bold;">
-                        <img src="http://localhost:4000/images/Rectangle 1.jpg" style="display: block;
-         border-radius: 50%;
-         width: 0.9876cm;
-         margin: auto;
-         height: 0.9876cm;
-         margin-bottom: 0.15cm;">
-                        1. Ingredient
-                        slip
-                        name
-                     </li>
-                     <li style=" width: 2.75cm;
-                     text-align: center;
-                     height: max-content;
-                     margin-bottom: 0.5647cm;
-                     font-family: Arial;
-                     font-style: normal;
-                     font-weight: bold;">
-                        <img src="http://localhost:4000/images/Rectangle 1.jpg" style="display: block;
-                     border-radius: 50%;
-                     width: 0.9876cm;
-                     margin: auto;
-                     height: 0.9876cm;
-                     margin-bottom: 0.15cm;">
-                        2. Ingredient
-                        slip
-                        name
-                     </li>
-                     <li style=" width: 2.75cm;
-                                 text-align: center;
-                                 height: max-content;
-                                 margin-bottom: 0.5647cm;
-                                 font-family: Arial;
-                                 font-style: normal;
-                                 font-weight: bold;">
-                        <img src="http://localhost:4000/images/Rectangle 1.jpg" style="display: block;
-                                 border-radius: 50%;
-                                 width: 0.9876cm;
-                                 margin: auto;
-                                 height: 0.9876cm;
-                                 margin-bottom: 0.15cm;">
-                        3. Ingredient
-                        slip
-                        name long long name
-                     </li>
-                     <li style=" width: 2.75cm;
-                        text-align: center;
-                        height: max-content;
-                        margin-bottom: 0.5647cm;
-                        font-family: Arial;
-                        font-style: normal;
-                        font-weight: bold;">
-                        <img src="http://localhost:4000/images/Rectangle 1.jpg" style="display: block;
-                           border-radius: 50%;
-                           width: 0.9876cm;
-                           margin: auto;
-                           height: 0.9876cm;
-                           margin-bottom: 0.15cm;">
-                        1. Ingredient
-                        slip
-                        name
-                     </li>
-                     <li style=" width: 2.75cm;
-                        text-align: center;
-                        height: max-content;
-                        margin-bottom: 0.5647cm;
-                        font-family: Arial;
-                        font-style: normal;
-                        font-weight: bold;">
-                        <img src="http://localhost:4000/images/Rectangle 1.jpg" style="display: block;
-                           border-radius: 50%;
-                           width: 0.9876cm;
-                           margin: auto;
-                           height: 0.9876cm;
-                           margin-bottom: 0.15cm;">
-                        5. Ingredient
-                        slip
-                        name long long name
-                     </li>
-                     <li style=" width: 2.75cm;
-                        text-align: center;
-                        height: max-content;
-                        margin-bottom: 0.5647cm;
-                        font-family: Arial;
-                        font-style: normal;
-                        font-weight: bold;">
-                        <img src="http://localhost:4000/images/Rectangle 1.jpg" style="display: block;
-                           border-radius: 50%;
-                           width: 0.9876cm;
-                           margin: auto;
-                           height: 0.9876cm;
-                           margin-bottom: 0.15cm;">
-                        6. Ingredient
-                        slip
-                        name
-                     </li>
-                     <li style=" width: 2.75cm;
-                        text-align: center;
-                        height: max-content;
-                        margin-bottom: 0.5647cm;
-                        font-family: Arial;
-                        font-style: normal;
-                        font-weight: bold;">
-                        <img src="http://localhost:4000/images/Rectangle 1.jpg" style="display: block;
-                              border-radius: 50%;
-                              width: 0.9876cm;
-                              margin: auto;
-                              height: 0.9876cm;
-                              margin-bottom: 0.15cm;">
-                        7. Ingredient
-                        slip
-                        name long long name
-                     </li>
-                     <li style=" width: 2.75cm;
-                              text-align: center;
-                              height: max-content;
-                              margin-bottom: 0.5647cm;
-                              font-family: Arial;
-                              font-style: normal;
-                              font-weight: bold;">
-                        <img src="http://localhost:4000/images/Rectangle 1.jpg" style="display: block;
-                              border-radius: 50%;
-                              width: 0.9876cm;
-                              margin: auto;
-                              height: 0.9876cm;
-                              margin-bottom: 0.15cm;">
-                        8. Ingredient
-                        slip
-                        name
-                     </li>
+                           padding: 0cm;
+                           list-style-type: none;
+                           display: flex;
+                           flex-direction: column;
+                           flex-wrap: wrap;
+                           height:18.494cm">
+                     {{#each nodes}}
                      <li style=" width: 2.75cm;
                            text-align: center;
                            height: max-content;
+                           padding-left: 0.9876cm;
                            margin-bottom: 0.5647cm;
                            font-family: Arial;
                            font-style: normal;
-                           font-weight: bold;
-                        ">
+                           font-weight: bold;">
                         <img src="http://localhost:4000/images/Rectangle 1.jpg" style="display: block;
                               border-radius: 50%;
                               width: 0.9876cm;
                               margin: auto;
                               height: 0.9876cm;
                               margin-bottom: 0.15cm;">
-                        8. Ingredient
-                        slip
-                        name long long name
+                        {{math @index "+" 1}}. {{this.slipName}}
                      </li>
-                  </ul>
-               </div>
-               <div>
-                  <ul start="9" style=" margin: 0px;
-               padding: 0px;
-               padding-left: 0.9876cm;
-               padding-right: 0.5643cm;
-               list-style-type: none;">
-                     <li style=" width: 2.75cm;
-                     text-align: center;
-                     height: max-content;
-                     margin-bottom: 0.5647cm;
-                     font-family: Arial;
-                     font-style: normal;
-                     font-weight: bold;">
-                        <img src="http://localhost:4000/images/Rectangle 1.jpg" style="display: block;
-                     border-radius: 50%;
-                     width: 0.9876cm;
-                     margin: auto;
-                     height: 0.9876cm;
-                     margin-bottom: 0.15cm;">
-                        9. Ingredient
-                        slip
-                        name
-                     </li>
-                     <li style=" width: 2.75cm;
-                                 text-align: center;
-                                 height: max-content;
-                                 margin-bottom: 0.5647cm;
-                                 font-family: Arial;
-                                 font-style: normal;
-                                 font-weight: bold;">
-                        <img src="http://localhost:4000/images/Rectangle 1.jpg" style="display: block;
-                                 border-radius: 50%;
-                                 width: 0.9876cm;
-                                 margin: auto;
-                                 height: 0.9876cm;
-                                 margin-bottom: 0.15cm;">
-                        10. Ingredient
-                        slip
-                        name
-                     </li>
-                     <li style=" width: 2.75cm;
-                                             text-align: center;
-                                             height: max-content;
-                                             margin-bottom: 0.5647cm;
-                                             font-family: Arial;
-                                             font-style: normal;
-                                             font-weight: bold;">
-                        <img src="http://localhost:4000/images/Rectangle 1.jpg" style="display: block;
-                                             border-radius: 50%;
-                                             width: 0.9876cm;
-                                             margin: auto;
-                                             height: 0.9876cm;
-                                             margin-bottom: 0.15cm;">
-                        11. Ingredient
-                        slip
-                        name long long name
-                     </li>
-                     <li style=" width: 2.75cm;
-                                    text-align: center;
-                                    height: max-content;
-                                    margin-bottom: 0.5647cm;
-                                    font-family: Arial;
-                                    font-style: normal;
-                                    font-weight: bold;">
-                        <img src="http://localhost:4000/images/Rectangle 1.jpg" style="display: block;
-                                       border-radius: 50%;
-                                       width: 0.9876cm;
-                                       margin: auto;
-                                       height: 0.9876cm;
-                                       margin-bottom: 0.15cm;">
-                        12. Ingredient
-                        slip
-                        name
-                     </li>
-                     <li style=" width: 2.75cm;
-                                    text-align: center;
-                                    height: max-content;
-                                    margin-bottom: 0.5647cm;
-                                    font-family: Arial;
-                                    font-style: normal;
-                                    font-weight: bold;">
-                        <img src="http://localhost:4000/images/Rectangle 1.jpg" style="display: block;
-                                       border-radius: 50%;
-                                       width: 0.9876cm;
-                                       margin: auto;
-                                       height: 0.9876cm;
-                                       margin-bottom: 0.15cm;">
-                        13. Ingredient
-                        slip
-                        name long long name
-                     </li>
-                     <li style=" width: 2.75cm;
-                                    text-align: center;
-                                    height: max-content;
-                                    margin-bottom: 0.5647cm;
-                                    font-family: Arial;
-                                    font-style: normal;
-                                    font-weight: bold;">
-                        <img src="http://localhost:4000/images/Rectangle 1.jpg" style="display: block;
-                                       border-radius: 50%;
-                                       width: 0.9876cm;
-                                       margin: auto;
-                                       height: 0.9876cm;
-                                       margin-bottom: 0.15cm;">
-                        14. Ingredient
-                        slip
-                        name
-                     </li>
-                     <li style=" width: 2.75cm;
-                                    text-align: center;
-                                    height: max-content;
-                                    margin-bottom: 0.5647cm;
-                                    font-family: Arial;
-                                    font-style: normal;
-                                    font-weight: bold;">
-                        <img src="http://localhost:4000/images/Rectangle 1.jpg" style="display: block;
-                                          border-radius: 50%;
-                                          width: 0.9876cm;
-                                          margin: auto;
-                                          height: 0.9876cm;
-                                          margin-bottom: 0.15cm;">
-                        15. Ingredient
-                        slip
-                        name long long name
-                     </li>
-                     <li style=" width: 2.75cm;
-                                          text-align: center;
-                                          height: max-content;
-                                          margin-bottom: 0.5647cm;
-                                          font-family: Arial;
-                                          font-style: normal;
-                                          font-weight: bold;">
-                        <img src="http://localhost:4000/images/Rectangle 1.jpg" style="display: block;
-                                          border-radius: 50%;
-                                          width: 0.9876cm;
-                                          margin: auto;
-                                          height: 0.9876cm;
-                                          margin-bottom: 0.15cm;">
-                        16. Ingredient
-                        slip
-                        name
-                     </li>
-                     <li style=" width: 2.75cm;
-                                       text-align: center;
-                                       height: max-content;
-                                       margin-bottom: 0.5647cm;
-                                       font-family: Arial;
-                                       font-style: normal;
-                                       font-weight: bold;">
-                        <img src="http://localhost:4000/images/Rectangle 1.jpg" style="display: block;
-                                          border-radius: 50%;
-                                          width: 0.9876cm;
-                                          margin: auto;
-                                          height: 0.9876cm;
-                                          margin-bottom: 0.15cm;">
-                        16. Ingredient
-                        slip
-                        name
-                     </li>
+                     {{/each}}
                   </ul>
                </div>
             </div>
-         </div>
-         <div
-            style="width: 1px;height: 21cm;border-left: 1px dashed #44496B;transform: translateY(-0.4cm);margin-right: 0.9876cm;">
-         </div>
-         <div class="content">
-            <div style="display: flex;
-         font-size: 6px;">
-               <div>
-                  <div style="width: 5.82cm;margin-left: 0cm;margin-bottom: 0.3529cm;font-size: 20px;
-               font-family: Pacifico;">Preparation directions</div>
-                  <ul style="margin: 0cm;
-               padding: 0cm;
-               list-style-type: none;position: relative;">
-                     <div style="margin-right:1.1287cm;">
-                        <img src="http://localhost:4000/images/Rectangle 1.jpg" style="width: 5.82cm;
-                                 height: 4.367cm;">
-                        <li>
-                           <p style="text-align: left;
-                        font-family: Arial;
-                        font-style: normal;
-                        font-weight: normal;
-                        font-size: 8px;
-                        width: 5.82cm;
-                        margin: 0cm;
-                        padding-bottom: 0.3cm;
-                        position: relative;">
-                              <span style="font-family: Pacifico;
-                        font-style: normal;
-                        font-weight: normal;
-                        font-size: 7px; ">1. Prepare :</span>
-                              Heat oil in a medium saucepan over medium heat. Coat choice of protein with cajun spices
-                              on both
-                              sides. Add protein choice to the saucepan, cooking thoroughly until both sides are a dark
-                              brown
-                              color. Spritz lemon juice over protein during cooking process.
-                           </p>
-                        </li>
-                     </div>
-                     <div style="margin-right:1.1287cm;">
-                        <img src="http://localhost:4000/images/Rectangle 1.jpg" style="width: 5.82cm;
-                                 height: 4.367cm;">
-                        <li>
-                           <p style="text-align: left;
-                        font-family: Arial;
-                        font-style: normal;
-                        font-weight: normal;
-                        font-size: 8px;
-                        width: 5.82cm;
-                        
-                        margin: 0cm;
-                        padding-bottom: 0.3cm;
-                        position: relative;">
-                              <span style="font-family: Pacifico;
-                        font-style: normal;
-                        font-weight: normal;
-                        font-size: 7px; ">2. Heat and Boil :</span>
-                              Heat oil in a medium saucepan over medium heat. Coat choice of protein with cajun spices
-                              on both
-                              sides. Add protein choice to the saucepan, cooking thoroughly until both sides are a dark
-                              brown
-                              color. Spritz lemon juice over protein during cooking process.
-                           </p>
-                        </li>
-                     </div>
-                     <div style="margin-right:1.1287cm;">
+            {{/with}}
+            {{/each}}
+            <div
+               style="width: 1px;height: 21cm;border-left: 1px dashed #44496B;transform: translateY(-0.4cm);margin-right: 0.9876cm;">
+            </div>
+            {{/if}}
+            <div>
+               <div style="display: flex;
+               font-size: 6px;
+               display : flex;
+   flex-flow: row wrap;
+               width: max-content;
+               max-height:18.494cm;">
+                  {{#if procedures}}
 
-                        <img src="http://localhost:4000/images/Rectangle 1.jpg" style="width: 5.82cm;
+                  {{#each procedures}}
+                  <div>
+                     <ul style="margin: 0cm;
+                           padding: 0cm;
+                            list-style-type: none;
+                            flex-direction: column;
+                           flex-wrap: wrap;
+                           display: flex;
+                           height: 18.494cm;">
+                        <div style="width: 5.82cm;margin-left: 0cm;margin-bottom: 0.3529cm;font-size: 20px;
+               font-family: Pacifico;">{{title}}</div>
+                        {{#each steps}}
+                        <div style="margin-right:1.1287cm;width: 5.82cm;position: relative;">
+                           <img src="http://localhost:4000/images/Rectangle 1.jpg" style="width: 5.82cm;
                                  height: 4.367cm;">
-                        <li>
-                           <p style="text-align: left;
-                           font-family: Arial;
-                           font-style: normal;
-                           font-weight: normal;
-                           font-size: 8px;
-                           width: 5.82cm;
-                           
-                           margin: 0cm;
-                           padding-bottom: 0.3cm;
-                           position: relative;">
-                              <span style="font-family: Pacifico;
-                           font-style: normal;
-                           font-weight: normal;
-                           font-size: 7px; ">3. Heat and Boil :</span>
-                              Heat oil in a medium saucepan over medium heat. Coat choice of protein with cajun spices
-                              on both
-                              sides. Add protein choice to the saucepan, cooking thoroughly until both sides are a dark
-                              brown
-                              color. Spritz lemon juice over protein during cooking process.
-                           </p>
-                        </li>
-                     </div>
-                     </ol>
-               </div>
-               <div>
-                  <ul style="margin: 0px;
-               padding: 0px;
-               list-style-type: none;position: relative;">
-                     <div style="margin-right:1.1287cm;">
-                        <img src="http://localhost:4000/images/Rectangle 1.jpg" style="width: 5.82cm;
-                              height: 4.367cm;">
-                        <li>
-                           <p style="text-align: left;
-                           font-family: Arial;
-                           font-style: normal;
-                           font-weight: normal;
-                           font-size: 8px;
-                           width: 5.82cm;
-                           
-                           margin: 0cm;
-                           padding-bottom: 0.3cm;
-                           position: relative;">
-                              <span style="font-family: Pacifico;
-                           font-style: normal;
-                           font-weight: normal;
-                           font-size: 7px; ">1. Prepare :</span>
-                              Heat oil in a medium saucepan over medium heat. Coat choice of protein with cajun spices
-                              on both
-                              sides. Add protein choice to the saucepan, cooking thoroughly until both sides are a dark
-                              brown
-                              color. Spritz lemon juice over protein during cooking process.
-                           </p>
-                        </li>
-                     </div>
-                     <div style="margin-right:1.1287cm;">
-                        <img src="http://localhost:4000/images/Rectangle 1.jpg" style="width: 5.82cm;
-                              height: 4.367cm;">
-
-                        <li>
-                           <p style="text-align: left;
+                           <li>
+                              <p style="text-align: left;
                         font-family: Arial;
                         font-style: normal;
                         font-weight: normal;
                         font-size: 8px;
                         width: 5.82cm;
-                        
                         margin: 0cm;
                         padding-bottom: 0.3cm;
                         position: relative;">
-                              <span style="font-family: Pacifico;
+                                 <span style="font-family: Pacifico;
                         font-style: normal;
                         font-weight: normal;
-                        font-size: 7px; ">1. Prepare :</span>
-                              Heat oil in a medium saucepan over medium heat. Coat choice of protein with cajun spices
-                              on both
-                              sides. Add protein choice to the saucepan, cooking thoroughly until both sides are a dark
-                              brown
-                              color. Spritz lemon juice over protein during cooking process.
-                           </p>
-                        </li>
-                     </div>
-                  </ul>
-                  <img style="width: 5.82cm;
-         height: 0.8117cm;
-         margin-bottom: 0.1411cm" src="http://localhost:4000/images/8iGbRLX5T 1.png" alt="design">
-                  <div style="width: 5.82cm;margin-left: 0cm;margin-bottom: 0.1411cm;font-size: 20px;
+                        font-size: 7px; ">1. {{this.title}} :</span>
+                                 {{this.description}}
+                              </p>
+                           </li>
+                        </div>
+                        {{/each}}
+                        <img style="width: 5.82cm;
+                        height: 0.8117cm;
+                        margin-bottom: 0.1411cm" src="http://localhost:4000/images/8iGbRLX5T 1.png" alt="design">
+                     </ul>
+
+                  </div>
+                  {{/each}}
+
+                  {{/if}}
+                  <!-- <div>
+                     <div style="width: 5.82cm;margin-left: 0cm;margin-bottom: 0.1411cm;font-size: 20px;
                font-family: Pacifico;">Garnish</div>
-                  <ul style="margin: 0px;
+                     <ul style="margin: 0px;
                padding: 0px;
                list-style-type: none;position: relative;">
-                     <div style="margin-right:1.1287cm;">
+                        <div style="margin-right:1.1287cm;">
 
-                        <img src="http://localhost:4000/images/Rectangle 1.jpg" style="width: 5.82cm;
+                           <img src="http://localhost:4000/images/Rectangle 1.jpg" style="width: 5.82cm;
                               height: 4.367cm;">
-                        <li>
-                           <p style="text-align: left;
+                           <li>
+                              <p style="text-align: left;
                            font-family: Arial;
                            font-style: normal;
                            font-weight: normal;
@@ -638,31 +265,33 @@
                            margin: 0cm;
                            padding-bottom: 0.3cm;
                            position: relative;">
-                              <span style="font-family: Pacifico;
+                                 <span style="font-family: Pacifico;
                            font-style: normal;
                            font-weight: normal;
                            font-size: 7px; ">1. Prepare :</span>
-                              Heat oil in a medium saucepan over medium heat. Coat choice of protein with cajun spices
-                              on both
-                              sides. Add protein choice to the saucepan, cooking thoroughly until both sides are a dark
-                              brown
-                              color. Spritz lemon juice over protein during cooking process.
-                           </p>
-                        </li>
-                     </div>
-                  </ul>
-               </div>
-               <div>
-                  <ul style=" margin: 0px;
+                                 Heat oil in a medium saucepan over medium heat. Coat choice of protein with cajun
+                                 spices
+                                 on both
+                                 sides. Add protein choice to the saucepan, cooking thoroughly until both sides are a
+                                 dark
+                                 brown
+                                 color. Spritz lemon juice over protein during cooking process.
+                              </p>
+                           </li>
+                        </div>
+                     </ul>
+                  </div> -->
+                  <!-- <div>
+                     <ul style=" margin: 0px;
                padding: 0px;
                list-style-type: none;">
-                     <div style="margin-right:1.1287cm;">
+                        <div style="margin-right:1.1287cm;">
 
-                        <img src="http://localhost:4000/images/Rectangle 1.jpg" style="width: 5.82cm;
+                           <img src="http://localhost:4000/images/Rectangle 1.jpg" style="width: 5.82cm;
                               height: 4.367cm;
                               display: block;">
-                        <li>
-                           <p style="text-align: left;
+                           <li>
+                              <p style="text-align: left;
                            font-family: Arial;
                            font-style: normal;
                            font-weight: normal;
@@ -672,22 +301,53 @@
                            margin: 0cm;
                            padding-bottom: 0.3cm;
                            position: relative;">
-                              <span style="font-family: Pacifico;
+                                 <span style="font-family: Pacifico;
                            font-style: normal;
                            font-weight: normal;
                            font-size: 7px; ">1. Prepare :</span>
-                              Heat oil in a medium saucepan over medium heat. Coat choice of protein with cajun spices
-                              on both
-                              sides. Add protein choice to the saucepan, cooking thoroughly until both sides are a dark
-                              brown
-                              color. Spritz lemon juice over protein during cooking process.
-                           </p>
-                        </li>
-                     </div>
-                     <div style="margin-right:1.1287cm;">
+                                 Heat oil in a medium saucepan over medium heat. Coat choice of protein with cajun
+                                 spices
+                                 on both
+                                 sides. Add protein choice to the saucepan, cooking thoroughly until both sides are a
+                                 dark
+                                 brown
+                                 color. Spritz lemon juice over protein during cooking process.
+                              </p>
+                           </li>
+                        </div>
+                        <div style="margin-right:1.1287cm;">
 
-                        <img src="http://localhost:4000/images/Rectangle 1.jpg" style="width: 5.82cm;
+                           <img src="http://localhost:4000/images/Rectangle 1.jpg" style="width: 5.82cm;
                               height: 4.367cm;">
+                           <li>
+                              <p style="text-align: left;
+                           font-family: Arial;
+                           font-style: normal;
+                           font-weight: normal;
+                           font-size: 8px;
+                           width: 5.82cm;
+                           
+                           margin: 0cm;
+                           padding-bottom: 0.3cm;
+                           position: relative;">
+                                 <span style="font-family: Pacifico;
+                           font-style: normal;
+                           font-weight: normal;
+                           font-size: 7px; ">1. Prepare :</span>
+                                 Heat oil in a medium saucepan over medium heat. Coat choice of protein with cajun
+                                 spices
+                                 on both
+                                 sides. Add protein choice to the saucepan, cooking thoroughly until both sides are a
+                                 dark
+                                 brown
+                                 color. Spritz lemon juice over protein during cooking process.
+                              </p>
+                           </li>
+                        </div>
+                        <div style="margin-right:1.1287cm;">
+                           <img src="http://localhost:4000/images/Rectangle 1.jpg" style="width: 5.82cm;
+                              height: 4.367cm;">
+                        </div>
                         <li>
                            <p style="text-align: left;
                            font-family: Arial;
@@ -710,42 +370,15 @@
                               color. Spritz lemon juice over protein during cooking process.
                            </p>
                         </li>
-                     </div>
-                     <div style="margin-right:1.1287cm;">
-                        <img src="http://localhost:4000/images/Rectangle 1.jpg" style="width: 5.82cm;
-                              height: 4.367cm;">
-                     </div>
-                     <li>
-                        <p style="text-align: left;
-                           font-family: Arial;
-                           font-style: normal;
-                           font-weight: normal;
-                           font-size: 8px;
-                           width: 5.82cm;
-                           
-                           margin: 0cm;
-                           padding-bottom: 0.3cm;
-                           position: relative;">
-                           <span style="font-family: Pacifico;
-                           font-style: normal;
-                           font-weight: normal;
-                           font-size: 7px; ">1. Prepare :</span>
-                           Heat oil in a medium saucepan over medium heat. Coat choice of protein with cajun spices
-                           on both
-                           sides. Add protein choice to the saucepan, cooking thoroughly until both sides are a dark
-                           brown
-                           color. Spritz lemon juice over protein during cooking process.
-                        </p>
-                     </li>
-                  </ul>
-                  <img style="width: 5.82cm;
+                     </ul>
+                     <img style="width: 5.82cm;
          height: 0.8117cm;
          margin-bottom: 0.1411cm" src="http://localhost:4000/images/8iGbRLX5T 1.png" alt="design">
+                  </div> -->
                </div>
             </div>
          </div>
       </div>
-   </div>
 </body>
 
 </html>
